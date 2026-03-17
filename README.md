@@ -6,6 +6,7 @@ python env
 
 ```bash
 conda create -p ./conda-env-sllm 'python<3.11' 
+conda activate ./conda-env-sllm
 ```
 
 vllm
