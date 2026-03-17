@@ -329,12 +329,16 @@ def save(
     default="./models",
     help="Local path where model is saved",
 )
+@click.option(
+    "--tensor-parallel-size", type=int, default=1, help="Tensor parallel size"
+)
 def load(
     model_name,
     backend,
     adapter_name,
     precision,
     storage_path,
+    tensor_parallel_size,
 ):
     """
     Loads a model from the sllm-store's storage.
@@ -375,6 +379,7 @@ def load(
                 model=model_full_path,
                 load_format="serverless_llm",
                 dtype="float16",
+                tensor_parallel_size=tensor_parallel_size,
             )
             logger.info(
                 f"Model loading time: {time.time() - start_load_time:.2f}s"
