@@ -54,4 +54,5 @@ In terminal2, load by:
 cd ServerlessLLM
 # TP=2
 sllm-store load --model Qwen/Qwen2.5-1.5B-Instruct-tp2 --backend vllm --tensor-parallel-size 2
+# Use --storage-path $(realpath <path-to-models>) to specify model dir, or ./models by default
 ```
